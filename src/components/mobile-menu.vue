@@ -8,7 +8,7 @@
 
     <transition>
         <div v-if="isOpen" class="bg-black/50 fixed h-full w-full top-0 left-0 -z-10">
-            <div class="flex flex-col p-4 w-8/12 ml-auto bg-app-almost-white h-full">
+            <div class="flex flex-col p-4 max-w-full w-64 ml-auto bg-app-almost-white h-full">
                 <div class="h-full max-h-32"></div>
                 <nav class="app-text-heading-xs text-app-dark-space-blue font-normal flex flex-col gap-6">
                     <li v-for="menuItem in menuData" class="list-none">
