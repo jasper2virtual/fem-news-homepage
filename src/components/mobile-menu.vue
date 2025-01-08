@@ -35,8 +35,7 @@ const closeMenu = () => {
 
 <style lang="scss" scoped>
 .hambuger {
-    @apply aspect-square;
-    width: 40px;
+    @apply aspect-square h-[30px] ml-auto;
     @apply grid place-content-center;
 }
 
