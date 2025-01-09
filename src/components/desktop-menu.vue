@@ -6,7 +6,6 @@
     </nav>
 </template>
 <script lang="ts" setup>
-import { defineProps, ref } from "vue";
 defineProps<{
     menuData: Array<{ text: string; path: string }>;
 }>();
