@@ -10,7 +10,7 @@
     </header>
   </div>
   <main class="main-content mx-auto">
-    test
+    
   </main>
 </template>
 <script lang="ts" setup>
@@ -26,7 +26,6 @@ const menuData = ref([
 ])
 </script>
 <style lang="scss" scoped>
-// app-desktop:grid grid-cols-[repeat(12,65px)] gap-x-[30px]
 $mobile-logo-height: 30px;
 $mobile-header-padding: 15px;
 $desktop-logo-height: 40px;
@@ -64,9 +63,11 @@ $grid-width: $grid-columns * $grid-column-width + ($grid-columns - 1) * $grid-ga
 @media (min-width: theme('screens.app-desktop')) {
   .main-content {
     margin-top: calc(#{$desktop-logo-height} + #{$desktop-header-pt} + #{$desktop-header-pb});
-    @apply px-0 py-[15px];
+    padding: 15px 0;
     max-width: $grid-width;
-    @apply grid;
+    display: grid;
+    grid-template-columns: repeat($grid-columns, $grid-column-width);
+    grid-gap: $grid-gap;
   }
 }
 </style>
