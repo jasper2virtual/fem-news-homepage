@@ -12,7 +12,7 @@
                 <div class="h-full max-h-32"></div>
                 <nav class="app-text-heading-xs text-app-dark-space-blue font-normal flex flex-col gap-6">
                     <li v-for="menuItem in menuData" class="list-none">
-                        <a :href="menuItem.path">{{ menuItem.text }}</a>
+                        <a class="hover:text-app-light-vermillion" :href="menuItem.path">{{ menuItem.text }}</a>
                     </li>
                 </nav>
             </div>
