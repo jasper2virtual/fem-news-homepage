@@ -1,12 +1,17 @@
 <template>
-  <header class="bg-app-almost-white app-desktop:hidden flex items-center fixed top-0 left-0 w-full mobile-header">
-    <img src="/src/assets/images/logo.svg" alt="logo" class="mobile-logo" />
-    <mobile-menu :menu-data="menuData" />
-  </header>
+  <div class="bg-app-almost-white app-desktop:hidden fixed top-0 left-0 w-full">
+
+    <header class=" flex items-center  mx-auto mobile-header">
+      <img src="/src/assets/images/logo.svg" alt="logo" class="mobile-logo" />
+      <mobile-menu :menu-data="menuData" />
+    </header>
+  </div>
   <div class="bg-app-almost-white fixed top-0 left-0 w-full hidden app-desktop:block">
-    <header class="mx-auto desktop-header flex">
+    <header class="mx-auto desktop-header flex items-center">
       <img src="/src/assets/images/logo.svg" alt="logo" class="desktop-logo" />
-      <desktop-menu :menu-data="menuData" />
+      <div class="ml-auto">
+        <desktop-menu :menu-data="menuData" />
+      </div>
     </header>
   </div>
   <main class="main-content mx-auto flex flex-col gap-8 app-desktop:grid">
@@ -116,6 +121,7 @@ $grid-width: $grid-columns * $grid-column-width + ($grid-columns - 1) * $grid-ga
 
 .mobile-header {
   padding: $mobile-header-padding;
+  max-width: $grid-width;
 }
 
 .desktop-logo {
@@ -131,13 +137,13 @@ $grid-width: $grid-columns * $grid-column-width + ($grid-columns - 1) * $grid-ga
 .main-content {
   padding: $mobile-header-padding;
   margin-top:calc(#{$mobile-logo-height} + #{$mobile-header-padding} * 2);
+  max-width: $grid-width;
 }
 
 @media (min-width: theme('screens.app-desktop')) {
   .main-content {
     margin-top: calc(#{$desktop-logo-height} + #{$desktop-header-pt} + #{$desktop-header-pb});
     padding: 15px 0;
-    max-width: $grid-width;
     display: grid;
     grid-template-columns: repeat($grid-columns, $grid-column-width);
     grid-gap: $grid-gap;
