@@ -1,3 +1,13 @@
 <template>
-    i m desktop menu
+    <nav class="text-app-gunmetal flex gap-6 ml-auto items-center">
+        <li v-for="menuItem in menuData" class="list-none">
+            <a :href="menuItem.path">{{ menuItem.text }}</a>
+        </li>
+    </nav>
 </template>
+<script lang="ts" setup>
+import { defineProps, ref } from "vue";
+defineProps<{
+    menuData: Array<{ text: string; path: string }>;
+}>();
+</script>

@@ -3,13 +3,13 @@
     <img src="/src/assets/images/logo.svg" alt="logo" class="mobile-logo" />
     <mobile-menu :menu-data="menuData" />
   </header>
-  <div class="flxed top-0 left-0 w-full hidden app-desktop:block">
+  <div class="fixed top-0 left-0 w-full hidden app-desktop:block">
     <header class="mx-auto desktop-header flex">
       <img src="/src/assets/images/logo.svg" alt="logo" class="desktop-logo" />
       <desktop-menu :menu-data="menuData" />
     </header>
   </div>
-  <main class="main-content">
+  <main class="main-content mx-auto">
     test
   </main>
 </template>
@@ -33,6 +33,11 @@ $desktop-logo-height: 40px;
 $desktop-header-pt: 80px;
 $desktop-header-pb: 40px;
 
+$grid-columns: 12;
+$grid-column-width: 65px;
+$grid-gap: 30px;
+$grid-width: $grid-columns * $grid-column-width + ($grid-columns - 1) * $grid-gap;
+
 .mobile-logo {
   height: $mobile-logo-height;
 }
@@ -48,6 +53,7 @@ $desktop-header-pb: 40px;
 .desktop-header {
   padding-top: $desktop-header-pt;
   padding-bottom: $desktop-header-pb;
+  max-width: $grid-width;
 }
 
 .main-content {
@@ -55,10 +61,12 @@ $desktop-header-pb: 40px;
   margin-top:calc(#{$mobile-logo-height} + #{$mobile-header-padding} * 2);
 }
 
-@screen app-desktop { 
+@media (min-width: theme('screens.app-desktop')) {
   .main-content {
-    // margin-top: calc(#{$desktop-logo-height} + #{$desktop-header-pt} + #{$desktop-header-pb});
+    margin-top: calc(#{$desktop-logo-height} + #{$desktop-header-pt} + #{$desktop-header-pb});
     @apply px-0 py-[15px];
+    max-width: $grid-width;
+    @apply grid;
   }
 }
 </style>
